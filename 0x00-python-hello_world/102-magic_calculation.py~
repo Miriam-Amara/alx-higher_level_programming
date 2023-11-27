@@ -1,0 +1,9 @@
+import dis
+def magic_calculation(a, b):
+    return 98 + (a ** b)
+
+def align_offsets(magic_calculation):
+    return 0
+
+dis.dis(magic_calculation)
+print(dis)
