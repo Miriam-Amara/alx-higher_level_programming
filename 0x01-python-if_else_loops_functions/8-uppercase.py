@@ -8,5 +8,3 @@ def uppercase(str):
             if i == len(str) - 1:
                 alpha = alpha + "\n"
         print("{}".format(alpha), end="")
-
-uppercase("Holberton school")
