@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
-i = 97
-
-while i >= 97 and i <= 122:
+for i in range(97, 123):
     if i == 101 or i == 113:
         i += 1
         continue
