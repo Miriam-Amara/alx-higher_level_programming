@@ -6,4 +6,4 @@ def uppercase(str):
             alpha = chr(num)
             if i == len(str) - 1:
                 alpha = alpha + "\n"
-            print(f"{alpha}", end="")
+            print("{}".format(alpha), end="")
