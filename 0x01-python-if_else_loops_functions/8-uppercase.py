@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uppercase(str):
     if str == "":
-        alpha = 3 / 0
+        alpha = " "
     for i in range(len(str)):
         alpha = str[i]
         if str[i] >= "a" and str[i] <= "z":
