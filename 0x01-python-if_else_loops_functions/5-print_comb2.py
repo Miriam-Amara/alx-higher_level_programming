@@ -1,11 +1,3 @@
 #!/usr/bin/python3
-
 for i in range(0, 100):
-    if i >= 0 and i <= 9:
-        i = "0" + str(i) + ", "
-    elif i == 99:
-        print("{}".format(i))
-        break
-    else:
-        i = str(i) + ", "
-    print("{}".format(i), end="")
+    print("{:02d}".format(i), end="\n" if i == 99 else ", ")
