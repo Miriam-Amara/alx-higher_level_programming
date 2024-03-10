@@ -6,6 +6,6 @@ def new_in_list(my_list, idx, element):
     new_list = []
     for num in my_list:
         if num == my_list[idx]:
-            my_list[idx] = element
+            num = element
         new_list.append(num)
     return new_list
