@@ -6,4 +6,4 @@ def print_sorted_dictionary(a_dictionary):
     for key in keys:
         new_dict.update({key: a_dictionary[key]})
     for key, value in new_dict.items():
-        print(f"{key}: {value}") 
+        print(f"{key}: {value}")
