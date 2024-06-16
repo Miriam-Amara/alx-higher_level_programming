@@ -59,7 +59,7 @@ class Square:
     def position(self):
         """
         Gets a tuple containing positions of spaces to be added
-        
+
         Returns:
             the current value of position
         """
@@ -69,11 +69,15 @@ class Square:
     def position(self, value):
         """
         Set a new tuple
-        
+
         Arg:
         value(tuple): the new tuple to set
         """
-        if not isinstance(value, tuple) or len(value) != 2 or not (str(value[0]).isdigit() and str(value[1]).isdigit()):
+        if (
+            not isinstance(value, tuple)
+            or len(value) != 2
+            or not (str(value[0]).isdigit() and str(value[1]).isdigit())
+        ):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -93,7 +97,7 @@ class Square:
             for _ in range(self.__size):
                 for i in range(self.__size + self.__position[0]):
                     if i < self.__position[0]:
-                        print(' ', end="")
+                        print(" ", end="")
                     else:
                         print("#", end="")
                 print()
