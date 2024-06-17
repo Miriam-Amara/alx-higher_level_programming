@@ -108,4 +108,4 @@ class Square:
 
     def __repr__(self):
         self.my_print()
-        return ''
+        return ""
