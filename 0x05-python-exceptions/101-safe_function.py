@@ -6,8 +6,7 @@ def safe_function(fct, *args):
     try:
 
         def new_function(*args):
-            a, b = args
-            return fct(a, b)
+            return fct(*args)
 
         return new_function(*args)
     except Exception as e:
