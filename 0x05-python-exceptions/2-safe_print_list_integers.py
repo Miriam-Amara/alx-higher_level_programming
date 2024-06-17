@@ -3,7 +3,7 @@ def safe_print_list_integers(my_list=[], x=0):
     try:
         for i in range(x):
             int(my_list[i])
-    except ValueError:
+    except Exception:
         pass
     j = 0
     for i in range(x):
