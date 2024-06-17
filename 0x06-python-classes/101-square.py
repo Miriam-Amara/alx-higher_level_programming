@@ -29,6 +29,7 @@ class Square:
         self.size = size
         self.__position = None
         self.position = position
+        self.__list1 = []
 
     @property
     def size(self):
@@ -97,16 +98,22 @@ class Square:
         if self.__size != 0:
             if self.__position[1] > 0:
                 print()
-            for _ in range(self.__size):
-                for i in range(self.__size + self.__position[0]):
-                    if i < self.__position[0]:
+                self.__list1.append("\n")
+            for i in range(self.__size):
+                for j in range(self.__size + self.__position[0]):
+                    if j < self.__position[0]:
                         print(" ", end="")
+                        self.__list1.append(" ")
                     else:
                         print("#", end="")
+                        self.__list1.append("#")
                 print()
+                if i < (self.__size - 1):
+                    self.__list1.append("\n")
         else:
             print()
+            self.__list1.append("\n")
 
     def __repr__(self):
-        self.my_print()
-        return ""
+        str_output = ''.join(self.__list1)
+        return (str_output)
