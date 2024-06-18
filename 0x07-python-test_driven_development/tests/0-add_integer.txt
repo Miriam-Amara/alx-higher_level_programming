@@ -1,5 +1,5 @@
- import doctest
- doctest.testfile('0-add_integer.txt')
+ #import doctest
+ #doctest.testfile('0-add_integer.txt')
 
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(3, 4)
