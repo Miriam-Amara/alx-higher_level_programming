@@ -1,6 +1,5 @@
 #0-add_integer.txt doctest
 
->>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(3, 4)
 7
 >>> add_integer(-1, -1)
@@ -42,3 +41,24 @@ a must be an integer
 ... except TypeError as e:
 ...    print(e)
 a must be an integer
+>>> try:
+...    add_integer(1e400 * 1e400, 2)
+... except TypeError as e:
+...    print(e)
+a must be an integer
+>>> try:
+...    add_integer(2, 1e500 * 1e500)
+... except TypeError as e:
+...    print(e)
+b must be an integer
+>>> num = float('nan')
+>>> try:
+...    add_integer(num, 1)
+... except TypeError as e:
+...    print(e)
+a must be an integer
+>>> try:
+...    add_integer(1, num)
+... except TypeError as e:
+...    print(e)
+b must be an integer
