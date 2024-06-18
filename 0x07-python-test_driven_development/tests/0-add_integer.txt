@@ -1,0 +1,50 @@
+ import doctest
+ doctest.testfile('0-add_integer.txt')
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(3, 4)
+7
+>>> add_integer(-1, -1)
+-2
+>>> add_integer(-5, 2)
+-3
+>>> add_integer(2, -5)
+-3
+>>> add_integer(7.0, 5.0)
+12
+>>> add_integer(7.0, 2)
+9
+>>> add_integer(2, 7.0)
+9
+>>> add_integer(0)
+98
+>>> try:
+...    add_integer()
+... except TypeError as e:
+...    print(e)
+a must be an integer
+>>> try:
+...    add_integer('a', 'b')
+... except TypeError as e:
+...    print(e)
+a must be an integer
+>>> try:
+...    add_integer(2, 'b')
+... except TypeError as e:
+...    print(e)
+b must be an integer
+>>> try:
+...    add_integer('a', 2)
+... except TypeError as e:
+...    print(e)
+a must be an integer
+>>> try:
+...    add_integer(None)
+... except TypeError as e:
+...     print(e)
+a must be an integer
+>>> try:
+...    add_integer([4, 5], [4,5])
+... except TypeError as e:
+...    print(e)
+a must be an integer
