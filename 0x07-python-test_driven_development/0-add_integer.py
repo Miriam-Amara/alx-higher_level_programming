@@ -18,11 +18,11 @@ print(result) #Output: 7
 def add_integer(a, b=98) -> int:
     """
     This function computes the sum of two numbers.
-    
+
     Parameters:
     a (int or float): The first number.
     b (int or float): The second number. It is by default 98.
-    
+
     Returns:
     int: The sum of a and b.
     """
