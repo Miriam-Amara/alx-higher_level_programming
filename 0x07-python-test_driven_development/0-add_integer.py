@@ -4,14 +4,6 @@ This module provides functions for basic arithmetic operations.
 
 Functions:
 add_integer(a, b=98) -> int: Returns the sum of a and b.
-
-Usage:
-Import the module and call the function with at least one argument:
-
-import 0-add_integer
-
-result = 0-add_integer.add_integer(3, 4)
-print(result) #Output: 7
 """
 
 
