@@ -21,7 +21,7 @@ def matrix_divided(matrix, div):
 
     new_matrix = []
     err1 = "matrix must be a matrix (list of lists) of integers/floats"
-    err2 = "each row of the matrix must have the same size"
+    err2 = "Each row of the matrix must have the same size"
 
     # checks for valid div value
     if div == 0:
