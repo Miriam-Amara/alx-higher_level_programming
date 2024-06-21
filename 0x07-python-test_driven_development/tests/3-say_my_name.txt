@@ -1,0 +1,18 @@
+#This file contains test cases for 3-say_my_name module
+
+>>> say_my_name("Oju", "Ebi")
+My name is Oju Ebi
+>>> say_my_name("Oju")
+My name is Oju 
+
+>>> try:
+...    say_my_name(None)
+... except TypeError as e:
+...    print(e)
+first_name must be a string
+
+>>> try:
+...    say_my_name("Oju", 12)
+... except TypeError as e:
+...    print(e)
+last_name must be a string
