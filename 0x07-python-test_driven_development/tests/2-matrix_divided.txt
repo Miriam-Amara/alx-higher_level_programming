@@ -1,5 +1,6 @@
-#2-matrix_divided.txt
+#test cases for 2-matrix_divided module
 
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
 >>> l1 = [[2, 3, 4], [8, 8, 8]]
 >>> l2 = [[-6.0, -4, 9.5]]
 >>> l3 = [4, 9, 2] 
