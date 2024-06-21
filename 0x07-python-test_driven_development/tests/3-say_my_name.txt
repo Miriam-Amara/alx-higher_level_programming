@@ -1,5 +1,6 @@
 #This file contains test cases for 3-say_my_name module
 
+>>> say_my_name = __import__("3-say_my_name").say_my_name
 >>> say_my_name("Oju", "Ebi")
 My name is Oju Ebi
 >>> say_my_name("Oju")
