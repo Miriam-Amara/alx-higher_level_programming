@@ -3,6 +3,12 @@
 >>> text_indentation = __import__("5-text_indentation").text_indentation
 
 >>> sentence = "Obi is a boy. He likes: sweet, chewing gum, snacks etc. What did I say that Obi likes? List them"
+
+>>> text_indentation("Obi.Boy")
+Obi.
+<BLANKLINE>
+Boy
+
 >>> text_indentation(sentence)
 Obi is a boy.
 <BLANKLINE>
