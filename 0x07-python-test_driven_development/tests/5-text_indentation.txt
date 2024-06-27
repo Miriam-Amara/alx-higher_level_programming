@@ -2,14 +2,15 @@
 
 >>> text_indentation = __import__("5-text_indentation").text_indentation
 
->>> sentence = "Obi is a boy. He likes: sweet, chewing gum, snacks etc. What did I say that Obi likes? List them"
+>>> sentence1 = "Obi is a boy. He likes: sweet, chewing gum, snacks etc. What did I say that Obi likes? List them"
+>>> sentence2 = "Holberton. School? How are you: John"
 
 >>> text_indentation("Obi.Boy")
 Obi.
 <BLANKLINE>
 Boy
 
->>> text_indentation(sentence)
+>>> text_indentation(sentence1)
 Obi is a boy.
 <BLANKLINE>
 He likes:
@@ -19,6 +20,15 @@ sweet, chewing gum, snacks etc.
 What did I say that Obi likes?
 <BLANKLINE>
 List them
+
+>>> text_indentation(sentence2)
+Holberton.
+<BLANKLINE>
+School?
+<BLANKLINE>
+How are you:
+<BLANKLINE>
+John
 
 >>> try:
 ...    text_indentation(435)

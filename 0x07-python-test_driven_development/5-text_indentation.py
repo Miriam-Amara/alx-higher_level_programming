@@ -28,9 +28,8 @@ def text_indentation(text):
             print(text[i])
             print()
             i += 1
-            if text[i] == ' ':
+            if text[i] == " ":
                 i += 1
-            
 
         else:
             print(text[i], end="")
