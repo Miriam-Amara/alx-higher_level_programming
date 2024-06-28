@@ -1,0 +1,132 @@
+# test cases for 100-matrix_mul module
+
+>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+>>> matrix1 = [[1, 2], [3, 4]]
+>>> matrix2 = [[1, 2], [3, 4]]
+>>> matrix3 = [[1, 2]]
+>>> matrix4 = [[3, 4], [5, 6]]
+
+>>> matrix_mul(matrix1, matrix2)
+[[7, 10], [15, 22]]
+
+>>> matrix_mul(matrix3, matrix4)
+[[13, 16]]
+
+# calling matrix_mul without argument
+>>> try:
+...    matrix_mul()
+... except Exception as e:
+...    print(e)
+matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+# calling matrix_mul with one argument
+>>> try:
+...    matrix_mul(matrix3)
+... except Exception as e:
+...    print(e)
+matrix_mul() missing 1 required positional argument: 'm_b'
+
+# when first arg is not a list
+>>> try:
+...    matrix_mul(None, [[2, 3]])
+... except TypeError as e:
+...    print(e)
+m_a must be a list
+
+# when second arg is not a list
+>>> try:
+...    matrix_mul([[2, 3]], "Alx")
+... except TypeError as e:
+...    print(e)
+m_b must be a list
+
+>>> try:
+...    matrix_mul([[]], "Alx")
+... except TypeError as e:
+...    print(e)
+m_b must be a list
+
+# when both args are not list
+>>> try:
+...    matrix_mul(None, None)
+... except TypeError as e:
+...    print(e)
+m_a must be a list
+
+# when first arg is not a list of lists
+>>> try:
+...   matrix_mul([2, 3, 4], [[2, 3]])
+... except TypeError as e:
+...    print(e)
+m_a must be a list of lists
+
+# when second arg is not a list of lists
+>>> try:
+...    matrix_mul([[2, 3]], [(2, 4), [3, 6]])
+... except TypeError as e:
+...    print(e)
+m_b must be a list of lists
+
+# when first arg is an empty list
+>>> try:
+...    matrix_mul([], [])
+... except ValueError as e:
+...    print(e)
+m_a can't be empty
+
+# when first arg is an empty list of lists
+>>> try:
+...    matrix_mul([[]], [[2]])
+... except ValueError as e:
+...    print(e)
+m_a can't be empty
+
+# when second arg is an empty list
+>>> try:
+...    matrix_mul([[2, 3]], [])
+... except ValueError as e:
+...    print(e)
+m_b can't be empty
+
+# when second arg is an empty list of lists
+>>> try:
+...    matrix_mul([[2, 3]], [[]])
+... except ValueError as e:
+...    print(e)
+m_b can't be empty
+
+# when first arg element is not an integer of float
+>>> try:
+...    matrix_mul([[2.0, "alx" , 5]], [[2, "alx", 5]])
+... except TypeError as e:
+...    print(e)
+m_a should contain only integers or floats
+
+# when second arg element is not an integer or float
+>>> try:
+...    matrix_mul([[2.0, 4, 5]], [[2, "alx", 5]])
+... except TypeError as e:
+...    print(e)
+m_b should contain only integers or floats
+
+# when first arg is not a rectangle (all rows should be the same size)
+>>> try:
+...    matrix_mul([[2, 3], [1]], [[2, 3], [2, 3]])
+... except TypeError as e:
+...    print(e)
+each row of m_a must be of the same size
+
+# when second arg is not a rectangle (all rows should be the same size)
+>>> try:
+...    matrix_mul([[2, 3], [2, 3]], [[2, 3], [1]])
+... except TypeError as e:
+...    print(e)
+each row of m_b must be of the same size
+
+# when the two matrices can't be multiplied
+>>> try:
+...    matrix_mul([[2, 3], [2, 3]], [[2, 3], [2, 3], [2, 3]])
+... except ValueError as e:
+...    print(e)
+m_a and m_b can't be multiplied
