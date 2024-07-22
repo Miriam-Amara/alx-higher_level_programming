@@ -1,0 +1,14 @@
+# This file contains tests for 0-rectangle module
+
+from doctest import testfile
+testfile("0-rectangle.txt")
+
+>>> Rectangle = __import__("0-rectangle").Rectangle
+
+>>> my_rectangle = Rectangle()
+
+>>> type(my_rectangle)
+<class '0-rectangle.Rectangle'>
+
+>>> my_rectangle.__dict__
+{}
