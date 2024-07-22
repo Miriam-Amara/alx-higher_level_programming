@@ -5,4 +5,7 @@ This module contains an empty class Rectangle.
 
 
 class Rectangle:
+    """
+    An empty class.
+    """
     pass
