@@ -1,2 +1,4 @@
 def magic_string():
-    return "Best School"
+    magic_string.count_call += 1
+    return "BestSchool, " * (magic_string.count_call - 1) + "BestSchool"
+magic_string.count_call = 0
