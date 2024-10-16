@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 
 """
-101-locked_class.py
-
-This module provides the LockedClass class for preventing users
-from dynamically creating new instance attributes.
+This module provides the LockedClass class for preventing users from
+dynamically creating new instance attributes.
 
 LockedClass:
     - A class for preventing users from dynamically creating
