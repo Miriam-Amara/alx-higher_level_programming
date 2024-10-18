@@ -10,6 +10,7 @@ and inherits functionality from the BaseGeometry class.
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """
     A class used to define rectangle shapes,
@@ -33,7 +34,7 @@ class Rectangle(BaseGeometry):
     def area(self):
         """
         Calulates the area of the rectangle.
-        
+
         Returns:
             int: The area of the rectangle
         """

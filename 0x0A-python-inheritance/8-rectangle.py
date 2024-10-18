@@ -10,6 +10,7 @@ and inherits functionality from the BaseGeometry class.
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     """
     A class used to define rectangle shapes,
