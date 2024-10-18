@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-10-square Module
+square Module
 
 This module provides the Square Class for creating square shapes.
 The Square class inherits functionality from
