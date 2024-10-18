@@ -1,0 +1,29 @@
+import doctest
+doctest.testfile("3-is_kind_of_class.txt")
+
+>>> import sys
+>>> sys.path.insert(0, '../')
+>>> sys.path[0]
+'../'
+
+>>> is_kind_of_class = __import__("3-is_kind_of_class").is_kind_of_class
+
+>>> class MyClass:
+...    pass
+>>> class SubClass(MyClass):
+...    pass
+
+>>> sub_class = SubClass()
+>>> is_kind_of_class(sub_class, MyClass)
+True
+>>> is_kind_of_class(sub_class, SubClass)
+True
+
+>>> is_kind_of_class(3, int)
+True
+
+>>> is_kind_of_class([7, "my"], list)
+True
+
+>>> is_kind_of_class(0, str)
+False

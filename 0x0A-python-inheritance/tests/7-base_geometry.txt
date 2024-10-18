@@ -1,0 +1,37 @@
+import doctest
+doctest.testfile("7-base_geometry.txt")
+
+>>> import sys
+>>> sys.path.insert(0, '../')
+>>> sys.path[0]
+'../'
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> bg = BaseGeometry()
+
+#tests the integer_validator method
+>>> bg.integer_validator("age", 8)
+
+>>> try:
+...    bg.integer_validator("name", "Adaku")
+... except Exception as e:
+...    e
+TypeError('name must be an integer')
+
+>>> try:
+...    bg.integer_validator("name", True)
+... except Exception as e:
+...    e
+TypeError('name must be an integer')
+
+>>> try:
+...    bg.integer_validator("age", 0)
+... except Exception as e:
+...    e
+ValueError('age must be greater than 0')
+
+>>> try:
+...    bg.integer_validator("age", -30)
+... except Exception as e:
+...    print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0

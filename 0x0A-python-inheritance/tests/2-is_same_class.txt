@@ -1,0 +1,24 @@
+import doctest
+doctest.testfile("2-is_same_class.txt")
+
+>>> import sys
+>>> sys.path.insert(0, '../')
+>>> sys.path[0]
+'../'
+
+>>> is_same_class = __import__("2-is_same_class").is_same_class
+
+>>> class MyClass:
+...    pass
+>>> my_class = MyClass()
+>>> is_same_class(my_class, MyClass)
+True
+
+>>> is_same_class(3, int)
+True
+
+>>> is_same_class([7, "my"], list)
+True
+
+>>> is_same_class(0, str)
+False

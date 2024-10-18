@@ -1,0 +1,22 @@
+import doctest
+doctest.testfile("1-my_list.txt")
+
+
+>>> import sys
+>>> sys.path.insert(0, '../')
+>>> sys.path[0]
+'../'
+
+
+>>> MyList = __import__("1-my_list").MyList
+
+>>> my_list = MyList()
+>>> my_list.append(65)
+>>> my_list.append(89)
+>>> my_list.append(45)
+>>> print(my_list)
+[65, 89, 45]
+>>> my_list.print_sorted()
+[45, 65, 89]
+>>> print(my_list)
+[65, 89, 45]
