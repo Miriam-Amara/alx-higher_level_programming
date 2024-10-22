@@ -11,6 +11,7 @@ doctest.testfile("1-my_list.txt")
 >>> MyList = __import__("1-my_list").MyList
 
 >>> my_list = MyList()
+
 >>> my_list.append(65)
 >>> my_list.append(89)
 >>> my_list.append(45)
@@ -20,3 +21,23 @@ doctest.testfile("1-my_list.txt")
 [45, 65, 89]
 >>> print(my_list)
 [65, 89, 45]
+
+
+>>> my_list1 = MyList()
+>>> my_list1.append(3)
+>>> my_list1.append(1)
+>>> my_list1.append(2)
+>>> my_list1.print_sorted()
+[1, 2, 3]
+>>> my_list1.append(3)
+>>> my_list1.append(-1)
+>>> my_list1.append(2)
+>>> my_list1.print_sorted()
+[-1, 1, 2, 2, 3, 3]
+>>> my_list1.append(1)
+>>> my_list1.append(4)
+>>> my_list1.append(-2)
+>>> my_list1.print_sorted()
+[-2, -1, 1, 1, 2, 2, 3, 3, 4]
+>>> print(my_list1)
+[3, 1, 2, 3, -1, 2, 1, 4, -2]
