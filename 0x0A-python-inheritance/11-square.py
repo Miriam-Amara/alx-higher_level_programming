@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
 """
-square Module
-
 This module provides the Square Class for creating square shapes.
 The Square class inherits functionality from
 Rectangle class (its parent class), which in turn inherits
