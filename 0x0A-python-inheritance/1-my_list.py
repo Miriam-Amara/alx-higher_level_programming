@@ -20,4 +20,4 @@ class MyList(list):
             list: The newly sorted list.
         """
         new_list = sorted(self)
-        return new_list
+        print(new_list)
