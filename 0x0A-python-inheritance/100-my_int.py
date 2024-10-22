@@ -20,16 +20,15 @@ class MyInt(int):
         """
         Return True if the values are not equal, inverting the equality check.
         """
-        return super().__ne__(value)
+        return self.real != value
 
     def __ne__(self, value):
         """
         Return True if the values are equal, inverting the inequality check.
         """
-        return super().__eq__(value)
+        return self.real == value
 
 
-my_i = MyInt(3)
-print(my_i)
-print(my_i == 3)
-print(my_i != 3)
+# print(issubclass(MyInt, int))
+# m = MyInt(3)
+# print(m)
