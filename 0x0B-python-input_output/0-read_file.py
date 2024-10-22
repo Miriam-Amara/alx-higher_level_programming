@@ -13,9 +13,9 @@ def read_file(filename=""):
     Args:
         filename (str): Name of the file to be read.
     """
-    with open(filename) as f:
+    with open(filename, encoding="utf-8") as f:
         content = f.read()
-        print(content)
+    print(content)
 
 
 # read_file("my_file.txt")
