@@ -20,9 +20,9 @@ def add_item():
     filename = "add_item.json"
 
     try:
-        List = load_from_json_file(filename)
+        list_obj = load_from_json_file(filename)
     except FileNotFoundError:
-        List = []
+        list_obj = []
     for arg in arguments[1:]:
-        List.append(arg)
-    save_to_json_file(List, filename)
+        list_obj.append(arg)
+    save_to_json_file(list_obj, filename)
