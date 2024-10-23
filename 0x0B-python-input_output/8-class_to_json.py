@@ -7,9 +7,6 @@ with simple data structures suitable for JSON serialization.
 """
 
 
-import json
-
-
 def class_to_json(obj):
     """
     Returns the dictionary representation of an object
