@@ -73,7 +73,32 @@ class Rectangle(Base):
         self.validate_attribute("y", value)
         self.__y = value
 
+    def area(self):
+        return self.__width * self.__height
+
+    def display(self):
+        """Displays the rectangle using '#' symbol."""
+        symbol = "#"
+        display_symbol = ""
+
+        for i in range(self.__height):
+            for _ in range(self.__width):
+                display_symbol += symbol
+            if i != (self.__height - 1):
+                display_symbol += "\n"
+        print(display_symbol)
+
+    def __str__(self):
+        return (
+            f"[Rectangle] ({self.id}) "
+            f"{self.x}/{self.y} - {self.__width}/{self.__height}"
+        )
+
+    def update(self, *args):
+        pass
+
 
 if __name__ == "__main__":
-    rectangle = Rectangle(5, 9)
-    print(rectangle.width)
+    rectangle = Rectangle(2, 2)
+    rectangle.display()
+    print(rectangle)
