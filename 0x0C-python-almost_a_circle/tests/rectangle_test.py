@@ -40,12 +40,12 @@ class TestRectangle(unittest.TestCase):
         self.b = 80
         self.c = -7
         self.d = 0
-        self.e = 7.6
         self.list1 = [4, 5]
         self.tuple1 = (4, -4)
         self.set1 = {5, "j"}
         self.dict1 = {"name": "x", 1: 5}
         self.str1 = " "
+        self.float1 = 4.50
 
     def test_valid_initialization(self):
         """
@@ -53,15 +53,14 @@ class TestRectangle(unittest.TestCase):
         """
         obj = Rectangle(self.a, self.b)
         self.assertEqual(obj.width, self.a)
-        print(obj.width)
         self.assertEqual(obj.height, self.b)
         self.assertEqual(obj.x, 0)
         self.assertEqual(obj.y, 0)
 
-        obj1 = Rectangle(self.e, self.a, x=self.e, y=self.b, id=8)
-        self.assertEqual(obj1.width, self.e)
+        obj1 = Rectangle(self.b, self.a, x=self.a, y=self.b, id=8)
+        self.assertEqual(obj1.width, self.b)
         self.assertEqual(obj1.height, self.a)
-        self.assertEqual(obj1.x, self.e)
+        self.assertEqual(obj1.x, self.a)
         self.assertEqual(obj1.y, self.b)
         self.assertEqual(obj1.id, 8)
 
@@ -89,7 +88,8 @@ class TestRectangle(unittest.TestCase):
             obj3 = Rectangle(self.a, self.dict1)
         with self.assertRaises(TypeError):
             obj3 = Rectangle(self.b, self.a, self.str1)
-
+        with self.assertRaises(TypeError):
+            obj3 = Rectangle(self.float1, self.a, self.str1)
 
 if __name__ == "__main__":
     unittest.main()
