@@ -108,7 +108,18 @@ class Rectangle(Base):
         )
 
     def update(self, *args):
-        """pass"""
+        """
+        Updates the attributes of the Rectangle instance.
+
+        Args:
+            *args: Variable number of arguments that update
+            the attributes in this order:
+                1st argument - id
+                2nd argument - width
+                3rd argument - height
+                4th argument - x
+                5th argument - y
+        """
         pass
 
 
