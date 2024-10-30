@@ -19,6 +19,16 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def validate_attribute(self, attribute, value):
+        """Validates all the instance attributes except id."""
+        if not isinstance(value, int):
+            raise TypeError(f"{attribute} must be an integer.")
+        if attribute == "x" or attribute == "y":
+            if value < 0:
+                raise ValueError(f"{attribute} must be >= 0")
+        elif value <= 0:
+            raise ValueError(f"{attribute} must be > 0")
+
     @property
     def width(self):
         """Get the width of the rectangle."""
@@ -26,11 +36,8 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """Set the width; must be positive."""
-        if not isinstance(value, (int, float)):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be greater than 0")
+        """Set the width; must be positive integer."""
+        self.validate_attribute("width", value)
         self.__width = value
 
     @property
@@ -40,11 +47,8 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """Set the height; must be positive."""
-        if not isinstance(value, (int, float)):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be greater than 0")
+        """Set the height; must be positive integer."""
+        self.validate_attribute("height", value)
         self.__height = value
 
     @property
@@ -54,9 +58,8 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """Set the x coordinate; must be an integer or float."""
-        if not isinstance(value, (int, float)):
-            raise TypeError("x must be an integer")
+        """Set the x coordinate; must be positive integer or zero."""
+        self.validate_attribute("x", value)
         self.__x = value
 
     @property
@@ -66,12 +69,11 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """Set the y coordinate; must be an integer or float."""
-        if not isinstance(value, (int, float)):
-            raise TypeError("y must be an integer")
+        """Set the y coordinate; must be positive integer or zero."""
+        self.validate_attribute("y", value)
         self.__y = value
 
 
 if __name__ == "__main__":
-    rectangle = Rectangle(5, 8)
+    rectangle = Rectangle(5, 9)
     print(rectangle.width)
