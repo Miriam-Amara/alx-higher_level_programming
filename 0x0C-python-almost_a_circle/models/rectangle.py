@@ -22,7 +22,7 @@ class Rectangle(Base):
     def validate_attribute(self, attribute, value):
         """Validates all the instance attributes except id."""
         if not isinstance(value, int):
-            raise TypeError(f"{attribute} must be an integer.")
+            raise TypeError(f"{attribute} must be an integer")
         if attribute == "x" or attribute == "y":
             if value < 0:
                 raise ValueError(f"{attribute} must be >= 0")
