@@ -11,11 +11,13 @@ unittest for base module
 import unittest
 import sys
 import os
-from base import Base
+
 
 sys.path.insert(
     0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../models"))
 )
+
+from base import Base
 
 
 class BaseTest(unittest.TestCase):
