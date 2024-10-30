@@ -85,16 +85,22 @@ class Rectangle(Base):
     def display(self):
         """
         Displays the rectangle using the '#' symbol
-        based on its width and height.
+        based on its width and height, and x and y coordinates.
         """
         symbol = "#"
         display_symbol = ""
 
-        for i in range(self.__height):
-            for _ in range(self.__width):
-                display_symbol += symbol
-            if i != (self.__height - 1):
-                display_symbol += "\n"
+        for i in range(self.y + self.__height):
+            if i < self.y:
+                display_symbol += '\n'
+            else:
+                for j in range(self.x + self.__width):
+                    if j < self.x:
+                        display_symbol += ' '
+                    else:
+                        display_symbol += symbol
+                if i != ((self.y + self.__height) - 1):
+                    display_symbol += '\n'
         print(display_symbol)
 
     def __str__(self):
@@ -124,6 +130,6 @@ class Rectangle(Base):
 
 
 if __name__ == "__main__":
-    rectangle = Rectangle(2, 2)
-    rectangle.display()
+    rectangle = Rectangle(4, 7, 5, 9)
     print(rectangle)
+    rectangle.display()
