@@ -74,11 +74,19 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """Calculates area of the rectangle."""
+        """
+        Calculates area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
         return self.__width * self.__height
 
     def display(self):
-        """Displays the rectangle using '#' symbol."""
+        """
+        Displays the rectangle using the '#' symbol
+        based on its width and height.
+        """
         symbol = "#"
         display_symbol = ""
 
@@ -92,7 +100,7 @@ class Rectangle(Base):
     def __str__(self):
         """
         Retrieves a user friendly string representation
-        of a Rectangle object.
+        of the Rectangle object.
         """
         return (
             f"[Rectangle] ({self.id}) "
