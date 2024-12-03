@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 """
 A module that lists all states from the database hbtn_0e_0_usa
 
@@ -14,47 +15,87 @@ Requirements:
 - Should not be executed when imported
 """
 
-
-from sqlalchemy.orm import declarative_base, sessionmaker
-from sqlalchemy import create_engine, Column, Integer, String
+import MySQLdb
 import sys
 
-Base = declarative_base()
+
+def validate_cmdline_args():
+    """
+    Validates and extracts command-line arguments for MySQL connection.
+
+    Returns:
+        tuple: A tuple containing the username, password, and database name
+               if the arguments are valid, otherwise 'None'.
+    """
+    try:
+        username, password, db_name = sys.argv[1:4]
+    except Exception as e:
+        print(
+            "requires 3 command line args: username, password and db_name\n"
+            f"{e}"
+        )
+        return None
+    return (username, password, db_name)
 
 
-class States(Base):
-    """Defines States class and maps it to a database table"""
-    __tablename__ = "states"
+def query_db(username, password, db_name, query):
+    """
+    Executes a SQL query on a MySQL database and returns the result.
 
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    name = Column(String)
+    Args:
+        username (str): The MySQL username.
+        password (str): The MySQL password.
+        db_name (str): The MySQL database name.
+        query (str): The SQL query to execute.
 
-    def __str__(self):
-        """
-        Displays user-friendly string representation of States objects
-        """
-        return f"({self.id!r}, {self.name!r})"
+    Returns:
+        list: A list of rows fetched from the database if successful,
+              otherwise 'None' if there is an error.
+    """
+    try:
+        db = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=db_name
+        )
+    except Exception as e:
+        print(f"Error connecting to MySQL server: {e}")
+        return None
 
-    def __repr__(self):
-        """
-        Displays string representation that can be used to recreate
-        object of States class.
-        """
-        return f"States(id={self.id!r}, name={self.name!r})"
+    try:
+        cursor = db.cursor()
+        cursor.execute(query)
+        result = cursor.fetchall()
+    except Exception as e:
+        print(f"Query not successfully executed: {e}")
+        return None
+    finally:
+        try:
+            cursor.close()
+            db.close()
+        except Exception as e:
+            print(f"Database not successfully closed: {e}")
+            return None
 
+    return result
 
-mysql_usrname, mysql_passwd, db_name = sys.argv[1:4]
-
-url = (
-    f"mysql+mysqldb://{mysql_usrname}:{mysql_passwd}@localhost:3306/{db_name}"
-    )
-engine = create_engine(url)
-Base.metadata.create_all(engine)
 
 if __name__ == "__main__":
-    Session = sessionmaker(bind=engine)
-    session = Session()
 
-    states_records = session.query(States).order_by(States.id).all()
-    for record in states_records:
-        print(record)
+    query = """
+        SELECT *
+        FROM states
+        ORDER BY id;
+    """
+
+    login_info = validate_cmdline_args()
+    if not login_info:
+        sys.exit(1)
+
+    usrname, passwd, dbname = login_info
+    result = query_db(usrname, passwd, dbname, query)
+    if result:
+        for row in result:
+            print(row)
