@@ -32,13 +32,13 @@ if __name__ == "__main__":
 
     username, password, dbname = sys.argv[1:4]
     try:
-      url = f"mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"
-      engine = create_engine(url, pool_pre_ping=True)
-      Base.metadata.create_all(engine)
+        url = f"mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"
+        engine = create_engine(url, pool_pre_ping=True)
+        Base.metadata.create_all(engine)
     except Exception as e:
         print(f"Error connecting to mysql server or database: {e}")
         sys.exit(1)
-    
+
     Session = sessionmaker()
     session = Session(bind=engine)
     state_obj = State(name="California")
