@@ -38,14 +38,14 @@ def validate_cmdline_args():
     return (username, password, db_name)
 
 
-def query_db(username, password, db_name, query):
+def query_db(username, password, db_name, query, filter_value=None):
     """
     Executes a SQL query on a MySQL database and returns the result.
 
     Args:
-        username (str): The MySQL username.
-        password (str): The MySQL password.
-        db_name (str): The MySQL database name.
+        username (str): MySQL username.
+        password (str): MySQL password.
+        db_name (str): MySQL database name.
         query (str): The SQL query to execute.
 
     Returns:
@@ -66,7 +66,10 @@ def query_db(username, password, db_name, query):
 
     try:
         cursor = db.cursor()
-        cursor.execute(query)
+        if not filter_value:
+            cursor.execute(query)
+        else:
+            cursor.execute(query, (filter_value,))
         result = cursor.fetchall()
     except Exception as e:
         print(f"Query not successfully executed: {e}")
