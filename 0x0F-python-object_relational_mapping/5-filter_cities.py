@@ -36,7 +36,7 @@ if __name__ == "__main__":
         FROM cities
         WHERE state_id = (SELECT id
                             FROM states
-                            WHERE name = %s
+                            WHERE BINARY name = %s
                         )
         ORDER BY id;
     """
@@ -46,3 +46,5 @@ if __name__ == "__main__":
             print(
                 f"{row[0]}\n" if row == records[-1] else f"{row[0]}, ", end=""
                 )
+    else:
+        print("Not found")
