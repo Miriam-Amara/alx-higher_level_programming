@@ -39,7 +39,6 @@ if __name__ == "__main__":
         url = f"mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}"
         engine = create_engine(url, pool_pre_ping=True)
         Base.metadata.create_all(engine)
-        print(Base.metadata.tables)
     except Exception as e:
         print(f"Error connecting to mysql server: {e}")
         sys.exit(1)
