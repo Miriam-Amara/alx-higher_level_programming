@@ -34,7 +34,7 @@ if __name__ == "__main__":
     query = """
             SELECT *
             FROM states
-            WHERE name = "{}"
+            WHERE BINARY name = "{}"
             ORDER BY id;
             """.format(filter_value)
     records = query_db(username, password, dbname, query)
